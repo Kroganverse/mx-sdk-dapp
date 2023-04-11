@@ -1,4 +1,5 @@
 export enum TransactionServerStatusesEnum {
+  sent = 'sent',
   pending = 'pending',
   fail = 'fail',
   invalid = 'invalid',

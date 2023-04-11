@@ -49,7 +49,7 @@ function manageTransaction({
   shouldRefreshBalance,
   isSequential
 }: ManageTransactionType) {
-  const { hash, status, results, invalidTransaction, hasStatusChanged } =
+  const { hash, status, results, invalidTransaction, hasStatusChanged, logs } =
     serverTransaction;
   try {
     if (timeouts.includes(hash)) {
@@ -121,7 +121,7 @@ function manageTransaction({
     }
 
     if (getIsTransactionFailed(status)) {
-      manageFailedTransactions({ sessionId, hash, results });
+      manageFailedTransactions({ sessionId, hash, results, logs });
     }
   } catch (error) {
     console.error(error);
