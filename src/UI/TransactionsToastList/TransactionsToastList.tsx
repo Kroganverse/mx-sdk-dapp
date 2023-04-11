@@ -80,6 +80,7 @@ export const TransactionsToastList = ({
   };
 
   useEffect(() => {
+    // console.log(`[TransactionsToastList] ${signedTransactionsToRender}`);
     handleSignedTransactionsListUpdate();
   }, [signedTransactionsToRender]);
 
