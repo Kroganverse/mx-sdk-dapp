@@ -18,7 +18,9 @@ export const useGetLastPendingTransactionHash = (): string => {
     const batch = pendingTransactions[sessionId];
     const batchWithPendingTx =
       batch.transactions?.filter(
-        (tx) => tx.status === TransactionServerStatusesEnum.pending
+        (tx) =>
+          tx.status === TransactionServerStatusesEnum.pending ||
+          tx.status === TransactionServerStatusesEnum.sent
       ) ?? [];
 
     if (batchWithPendingTx.length > 0) {

@@ -9,7 +9,7 @@ import {
   TransactionServerStatusesEnum,
   TransactionTypesEnum
 } from './enums.types';
-import { BatchTransactionsResponseType } from './serverTransactions.types';
+import { BatchTransactionsResponseType, ResultLogType } from './serverTransactions.types';
 
 export interface TransactionsToSignType {
   transactions: IPlainTransactionObject[];
@@ -133,6 +133,7 @@ export interface SendTransactionsPropsType {
     | SimpleTransactionType
     | (Transaction | SimpleTransactionType)[];
   redirectAfterSign?: boolean;
+  sendSeparated?: boolean;
   signWithoutSending: boolean;
   skipGuardian?: boolean;
   completedTransactionsDelay?: number;
@@ -206,6 +207,7 @@ export interface SignModalPropsType extends WithClassnameType {
 export interface CustomTransactionInformation {
   redirectAfterSign: boolean;
   sessionInformation: any;
+  sendSeparated?: boolean;
   completedTransactionsDelay?: number;
   signWithoutSending: boolean;
   /**
@@ -240,6 +242,7 @@ export type GetTransactionsByHashesReturnType = {
   data: string;
   previousStatus: string;
   hasStatusChanged: boolean;
+  logs: ResultLogType;
 }[];
 
 export type PendingTransactionsType = {

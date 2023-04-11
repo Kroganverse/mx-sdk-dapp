@@ -43,3 +43,6 @@ export const addNewCustomToast = (props: CustomToastType) => {
 
 export const deleteCustomToast = (toastId: string) =>
   store.dispatch(removeCustomToast(toastId));
+
+export const uppercaseError = (error?: string) =>
+  error ? error.charAt(0).toUpperCase() + error.slice(1) : undefined;
