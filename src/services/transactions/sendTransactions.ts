@@ -11,6 +11,7 @@ export async function sendTransactions({
   transactions,
   transactionsDisplayInfo,
   redirectAfterSign = true,
+  sendSeparated = false,
   callbackRoute = window?.location.pathname,
   signWithoutSending,
   completedTransactionsDelay,
@@ -44,7 +45,8 @@ export async function sendTransactions({
         completedTransactionsDelay,
         sessionInformation,
         skipGuardian,
-        signWithoutSending
+        signWithoutSending,
+        sendSeparated
       }
     });
   } catch (err) {

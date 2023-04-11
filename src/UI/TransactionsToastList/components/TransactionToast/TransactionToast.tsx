@@ -48,6 +48,8 @@ export const TransactionToast = ({
     onDelete
   });
 
+  // console.log(`[TransactionToast][${toastId}] ${JSON.stringify(transactions)}`);
+
   const ProgressComponent = customization?.Progress ?? Progress;
   const TransactionToastContentComponent =
     customization?.TransactionToastContent ?? TransactionToastContent;
