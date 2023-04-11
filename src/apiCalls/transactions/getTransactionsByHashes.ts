@@ -15,7 +15,8 @@ export async function getTransactionsByHashes(
   const { data: responseData } = await axios.get(`${apiAddress}/transactions`, {
     params: {
       hashes: hashes.join(','),
-      withScResults: true
+      withScResults: true,
+      withLogs: true
     }
   });
 
@@ -33,7 +34,8 @@ export async function getTransactionsByHashes(
       sender: txOnNetwork?.sender,
       receiver: txOnNetwork?.receiver,
       previousStatus,
-      hasStatusChanged: txOnNetwork && txOnNetwork.status !== previousStatus
+      hasStatusChanged: txOnNetwork && txOnNetwork.status !== previousStatus,
+      logs: txOnNetwork?.logs
     };
   });
 }

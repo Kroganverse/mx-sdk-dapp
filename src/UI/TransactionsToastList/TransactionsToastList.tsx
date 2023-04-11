@@ -107,6 +107,7 @@ export const TransactionsToastListComponent = ({
   }, [dispatch, signedTransactionsToRender, transactionsToasts]);
 
   useEffect(() => {
+    // console.log(`[TransactionsToastList] ${signedTransactionsToRender}`);
     handleSignedTransactionsListUpdate();
   }, [signedTransactionsToRender, handleSignedTransactionsListUpdate]);
 

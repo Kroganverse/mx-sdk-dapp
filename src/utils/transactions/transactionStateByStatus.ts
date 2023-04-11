@@ -25,7 +25,8 @@ export const timedOutBatchTransactionsStates = [
 ];
 
 export const pendingServerTransactionsStatuses = [
-  TransactionServerStatusesEnum.pending
+  TransactionServerStatusesEnum.pending,
+  TransactionServerStatusesEnum.sent
 ];
 
 export const successServerTransactionsStates = [

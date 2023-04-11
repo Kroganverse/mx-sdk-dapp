@@ -26,6 +26,8 @@ const TransactionDetailsComponent = ({
   }
 
   const processedTransactionsStatus = useMemo(() => {
+    // console.log(`[TransactionDetails] ${JSON.stringify(transactions)}`);
+
     const processedTransactions = transactions.filter(
       (tx) => !isServerTransactionPending(tx?.status)
     ).length;
@@ -46,12 +48,13 @@ const TransactionDetailsComponent = ({
 
       <div className={styles?.status}>{processedTransactionsStatus}</div>
 
-      {transactions.map(({ hash, status }) => {
+      {transactions.map(({ hash, status, errorMessage }) => {
         const transactionDetailsBodyProps: TransactionDetailsBodyPropsType = {
           className,
           hash,
           status,
-          isTimedOut
+          isTimedOut,
+          errorMessage
         };
 
         return (

@@ -14,6 +14,7 @@ import { TransactionServerStatusesEnum } from 'types';
 import { CopyButton } from 'UI/CopyButton';
 import { ExplorerLink } from 'UI/ExplorerLink';
 import { Trim } from 'UI/Trim';
+import { uppercaseError } from 'utils';
 
 const iconSuccessData = {
   icon: faCheck
@@ -29,6 +30,7 @@ const iconPendingData = {
 
 const iconData: Record<string, typeof iconPendingData> = {
   pending: iconPendingData,
+  sent: iconPendingData,
   success: iconSuccessData,
   fail: iconFailedData,
   invalid: iconFailedData,
@@ -42,6 +44,7 @@ export interface TransactionDetailsBodyPropsType {
   } | null;
   className?: string;
   status?: TransactionServerStatusesEnum;
+  errorMessage?: string;
   hash: string;
 }
 
@@ -52,6 +55,7 @@ const TransactionDetailsBodyComponent = ({
   iconSrc,
   isTimedOut,
   globalStyles,
+  errorMessage,
   styles
 }: TransactionDetailsBodyPropsType & WithStylesImportType) => {
   const iconStatus = status ? iconData[status] : null;
@@ -82,6 +86,8 @@ const TransactionDetailsBodyComponent = ({
         page={`/${TRANSACTIONS_ENDPOINT}/${hash}`}
         className={globalStyles?.ml2}
       />
+
+      <p className={styles?.error}>{uppercaseError(errorMessage)}</p>
     </div>
   );
 };
