@@ -6,7 +6,6 @@ import {
 import { useDispatch, useSelector } from 'reduxStore/DappProviderContext';
 import {
   accountSelector,
-  pendingSignedTransactionsSelector,
   signedTransactionsSelector
 } from 'reduxStore/selectors';
 import {
@@ -43,7 +42,6 @@ export const TransactionSender = ({
 
   const { nonce } = useSelector(accountSelector);
   const signedTransactions = useSelector(signedTransactionsSelector);
-  const pendingTransactions = useSelector(pendingSignedTransactionsSelector);
 
   const sendingRef = useRef(false);
   const sentSessionIds = useRef<string[]>([]);

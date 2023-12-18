@@ -1,9 +1,7 @@
 import React from 'react';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 import { DataTestIdsEnum } from 'constants/index';
-import { WithClassnameType } from 'UI/types';
 
 export interface DefaultToastDeleteButtonPropsType {
   onClick?: () => void;
